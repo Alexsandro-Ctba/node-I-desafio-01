@@ -4,7 +4,7 @@ const { validate } = require('uuid');
 const app = require('../');
 
 describe('Todos', () => {
-  it("should be able to list all user's todo", async () => {
+  it("deve ser capaz de listar todas as tarefas do usuário", async () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
@@ -33,7 +33,7 @@ describe('Todos', () => {
     )
   });
 
-  it('should be able to create a new todo', async () => {
+  it('deve ser capaz de criar uma nova tarefa', async () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
@@ -61,7 +61,7 @@ describe('Todos', () => {
     expect(response.body.created_at).toBeTruthy();
   });
 
-  it('should be able to update a todo', async () => {
+  it('deve ser capaz de atualizar um todo', async () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
@@ -94,7 +94,7 @@ describe('Todos', () => {
     });
   });
 
-  it('should not be able to update a non existing todo', async () => {
+  it('não deve ser capaz de atualizar uma tarefa não existente', async () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
@@ -116,7 +116,7 @@ describe('Todos', () => {
     expect(response.body.error).toBeTruthy();
   });
 
-  it('should be able to mark a todo as done', async () => {
+  it('deve ser capaz de marcar uma tarefa como concluída', async () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
@@ -144,7 +144,7 @@ describe('Todos', () => {
     });
   });
 
-  it('should not be able to mark a non existing todo as done', async () => {
+  it('não deve ser capaz de marcar uma tarefa inexistente como concluída', async () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
@@ -160,7 +160,7 @@ describe('Todos', () => {
     expect(response.body.error).toBeTruthy();
   });
 
-  it('should be able to delete a todo', async () => {
+  it('deve ser capaz de excluir um todo', async () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
@@ -190,7 +190,7 @@ describe('Todos', () => {
     expect(listResponse.body).toEqual([]);
   });
 
-  it('should not be able to delete a non existing todo', async () => {
+  it('não deve ser capaz de excluir uma tarefa não existente', async () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
